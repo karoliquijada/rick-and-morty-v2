@@ -1,38 +1,170 @@
-.App {
-  text-align: center;
-}
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&display=swap'); */
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* Css variables */
+:root {
+    scroll-behavior: smooth;
+    --white: hsl(0, 0%, 100%);
+    --dark-desaturated-blue: hsl(236, 21%, 26%);
+    --light-gray: hsl(0, 0%, 77%);
+    --really-dark-blue: hsl(252, 87%, 3%);
   }
+  
+body {
+  background-color: var(--really-dark-blue);
+  background-image: url('assest/bg-stars.svg');
+  font-family: 'Montserrat', sans-serif;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.App {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* -------------------DISPLAY-------------------- */
+.df {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.h {
+  height: 100vh;
+}
+
+/* -------------------HEADER-------------------- */
+.h-container {
+  width: 90%;
+  max-width: 1200px;
+  height: auto;
+  margin: 0 auto;
+}
+
+header img {
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+}
+
+.page-title {
+  color: var(--white);
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.img-home {
+  width: 75%;
+  max-width: 800px;
+  height: auto;
+}
+
+/* -------------------BUTTONS-------------------- */
+.b-container {
+  width: 90%;
+  max-width: 1200px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.link {
+  background-color: var(--light-gray);
+  padding: 10px;
+  border-radius: 30px;
+  width: 150px;
+  text-align: center;
+  color: var(--dark-desaturated-blue);
+  font-weight: 700;
+  font-size: 20px;
+  text-decoration: none;
+  margin: 10px;
+}
+
+.border {
+  border-radius: 5px;
+  padding: 5px;
+  width: 100px;
+}
+/* -----------------CHARACTERS-------------------- */
+.items-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  row-gap: 20px;
+  column-gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+  overflow: hidden;
+  padding: 20px 0;
+}
+
+.character-card {
+  width: 300px;
+  height: 250px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.character-card img:hover {
+  opacity: 0.7;
+} 
+
+.card-title-container {
+  position: relative;
+  top: 90px;
+}
+
+.card-title {
+  position: absolute;
+  z-index: 2;
+  text-align: center;
+  width: 100%;
+  color: var(--dark-desaturated-blue);
+}
+
+/* -------------------EPISODES-------------------- */
+.episode-card {
+  background-color: var(--light-gray);
+  width: 250px;
+  height: 120px;
+  border-radius: 20px;
+  padding: 0 20px;
+  margin: 10px;
+}
+
+/* -------------------DETAILED CARD-------------------- */
+.character-card-detail {
+  background-color: var(--light-gray);
+  width: 300px;
+  height: auto;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.card-title-detail {
+  color: var(--really-dark-blue);
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+.card-span {
+  font-weight: 600;
+}
+
+.card-text-container {
+  margin: 10px;
+}
+
+/* -------------------SEARCH BOX-------------------- */
+.filter {
+  width: 300px;
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  background-color:var(--light-gray);
+  text-align: center;
 }
