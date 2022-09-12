@@ -2,9 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { ApolloClient, HttpLink, InMemoryCache, ApolloProvider } from "@apollo/client";
-import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
 
 
 const client = new ApolloClient({
@@ -23,5 +21,3 @@ ReactDOM.render(
   </ApolloProvider>,
   document.getElementById('root')
 );
-
-reportWebVitals();

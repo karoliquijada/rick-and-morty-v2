@@ -1,12 +1,23 @@
 import React from "react";
+import "./Header.styles.css";
+import { Link } from "react-router-dom";
 
-const Header = () =>  {
+const Header = ({title = "titulo"}) => {
   return (
-      <header className="h-container">       
-        <img alt="rick-and-morty-title" 
-            src="https://occ-0-2794-2219.1.nflxso.net/dnm/api/v6/LmEnxtiAuzezXBjYXPuDgfZ4zZQ/AAAABddiw4GEUq76B3fmiI7r6NF-GrWeEf99MjwKrfixFKM4B4o1uuitcgbuBNa3n04L5GSamUi2vex4adduBV-S2XGERxn29-ffvoRv.png?r=a6e"
-            /> 
+    <div>
+      <header>
+        <Link className="link" to="/">
+          Home
+        </Link>
+        <Link className="link" to="/characters">
+          Personajes
+        </Link>
+        <Link className="link" to="/episodes">
+          Episodes
+        </Link>
       </header>
+      <h1 className="title">{title}</h1>
+    </div>
   );
-}
+};
 export default Header;
