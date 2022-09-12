@@ -15,6 +15,6 @@
 
 body {
   background-color: var(--really-dark-blue);
-  background-image: url('assest/bg-stars.svg');
+  background-image: url('assets/bg-stars.svg');
   font-family: 'Poppins', sans-serif;
 }
