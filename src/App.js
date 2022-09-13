@@ -1,8 +1,9 @@
-import './App.css';
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Home from './pages/home/home-page';
 import CharactersPage from './pages/characters/characters-page';
-import EpisodesPage from './pages/episodes-page'
+import EpisodesPage from './pages/episodes/episodes-page';
+import './App.css';
+import './assets/block.css';
 
 const App = () => {
   return (

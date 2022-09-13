@@ -2,9 +2,14 @@
 :root {
     scroll-behavior: smooth;
     --white: hsl(0, 0%, 100%);
-    --dark-desaturated-blue: hsl(236, 21%, 26%);
+   --dark-desaturated-blue: hsl(240, 9%, 13%);
     --light-gray: hsl(0, 0%, 77%);
-    --really-dark-blue: hsl(252, 87%, 3%);
+    --really-dark-blue: hsl(260, 100%, 1%);
+
+    /* Fonts */
+    --sm: 16px;
+    --md: 24px;
+    --lg: 32px;
 }
 
 * {
@@ -16,5 +21,31 @@
 body {
   background-color: var(--really-dark-blue);
   background-image: url('assets/bg-stars.svg');
-  font-family: 'Poppins', sans-serif;
+  font-family: "League Spartan", sans-serif;
+}
+
+.page-title {
+  color: var(--white);
+  font-size: var(--lg);
+  font-weight: 500;
+  padding-top: 50px;
+}
+
+.page-title + p {
+  margin-top: 24px;
+  padding: 12px;
+  font-size: var(--md);
+}
+
+/* Revisar */
+.link {
+  text-decoration: none;
+}
+
+
+@media (max-width: 640px) {
+  .page-title + p {
+    font-size: var(--sm);
+  }
+  
 }

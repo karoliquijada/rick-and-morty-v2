@@ -12,10 +12,18 @@ const CharactersPage = () => {
   useEffect(() => {
     if (data) {
       const mappedCharacters = data.characters.results.map((character) => (
-        <CharacterCard key={character.id} id={character.id} image={character.image} name={character.name} />
+        <CharacterCard 
+          key={character.id} 
+          id={character.id} 
+          image={character.image} 
+          name={character.name} 
+          species={character.species}
+         /*  origin={character.origin.name}
+          location={character.location.name} */
+          status={character.status}
+          />
       ));
       setCharacters(mappedCharacters);
-      console.log('info: ',data.characters);
     }
   }, [page]);
 
