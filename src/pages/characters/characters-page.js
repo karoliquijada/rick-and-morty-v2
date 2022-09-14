@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from "react";
+import { React, useState} from "react";
 import CharacterCard from "../../components/CharacterCard/character-card";
 import { useCharacters } from "../../graphql/custom-hooks";
 import Header from "../../components/Header/Header";
@@ -6,58 +6,52 @@ import "./characters-page.styles.css";
 
 const CharactersPage = () => {
   const [page, setPage] = useState(1);
-  const [characters, setCharacters] = useState([]);
   const { loading, error, data } = useCharacters(page);
 
-  useEffect(() => {
-    if (data) {
-      const mappedCharacters = data.characters.results.map((character) => (
-        <CharacterCard 
-          key={character.id} 
-          id={character.id} 
-          image={character.image} 
-          name={character.name} 
-          species={character.species}
-         /*  origin={character.origin.name}
-          location={character.location.name} */
-          status={character.status}
-          />
-      ));
-      setCharacters(mappedCharacters);
-    }
-  }, [page]);
-
-  const prev = () => {
-    if (page === 1) {
-      return;
-    }
-    setPage(page - 1);
-    console.log("Prev" + page);
+  const prevPage = () => {
+    if(page !== 1)
+      setPage(page - 1);
   };
 
-  const next = () => {
-    const { pages } = data.characters.info;
-    if (page < pages) {
+  const nextPage = () => {
+    if(page !== 42)
       setPage(page + 1);
-      console.log("Next" + page);
-    }
-    /* Retornar que no hay mas resultados */
   };
 
   return (
     <div>
       <Header title={"Personajes"} />
       <div className="pagination">
-        <button className="" onClick={prev}>
+        <button className="block" onClick={prevPage}>
           Prev
         </button>
-        <button className="" onClick={next}>
+        <button className="block" onClick={nextPage}>
           Next
         </button>
       </div>
       <div className="characters-container">
-        {loading ? <h1 className="page-title">Loading...</h1> : characters}
-        {error ? <h1 className="page-title">error...</h1> : ""}
+        {loading ? (
+          <h2 className="page-title block alive">Loading...</h2>
+        ) : error ? (
+          <h2 className="page-title block dead fixed">{error.message}</h2>
+        ) : (
+          <div className="cards-container">
+            {data.characters.results.map((character) => {
+              return (
+                <CharacterCard
+                  key={character.id}
+                  id={character.id}
+                  image={character.image}
+                  name={character.name}
+                  species={character.species}
+                  origin={character.origin.name}
+                  location={character.location.name}
+                  status={character.status}
+                />
+              );
+            })}
+          </div>
+        )}
       </div>
     </div>
   );

@@ -6,7 +6,7 @@
     gap: 10px;
 }
 
-.characters-container {
+.cards-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

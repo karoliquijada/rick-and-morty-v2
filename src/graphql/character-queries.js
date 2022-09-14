@@ -6,11 +6,24 @@ query EpisodesPagination($pageNumber:Int!) {
     info {
       count
       pages
+      next
+      prev
     }     
     results {
-        id
+      id
+      name
+      status
+      species
+      gender
+      origin {
         name
-        image
+      }
+      location {
+        name
+      }
+
+      image
+
     }     
   }
 }`;
