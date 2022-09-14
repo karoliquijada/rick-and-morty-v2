@@ -28,10 +28,10 @@
 }
 
 footer {
-    width: 50vw;
     position: absolute;
     bottom: 0;
     text-align: center;
+    width: inherit;
 }
 
 footer p {

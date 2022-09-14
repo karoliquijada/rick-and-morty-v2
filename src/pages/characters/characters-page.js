@@ -1,4 +1,5 @@
 import { React, useState} from "react";
+import Pagination from "../../components/Pagination/pagination";
 import CharacterCard from "../../components/CharacterCard/character-card";
 import { useCharacters } from "../../graphql/custom-hooks";
 import Header from "../../components/Header/Header";
@@ -8,12 +9,13 @@ const CharactersPage = () => {
   const [page, setPage] = useState(1);
   const { loading, error, data } = useCharacters(page);
 
-  const prevPage = () => {
+  //Revisar si le puedo el estado como un prop y que me devuelva solo el valor
+  const prev = () => {
     if(page !== 1)
       setPage(page - 1);
   };
 
-  const nextPage = () => {
+  const next = () => {
     if(page !== 42)
       setPage(page + 1);
   };
@@ -21,19 +23,12 @@ const CharactersPage = () => {
   return (
     <div>
       <Header title={"Personajes"} />
-      <div className="pagination">
-        <button className="block" onClick={prevPage}>
-          Prev
-        </button>
-        <button className="block" onClick={nextPage}>
-          Next
-        </button>
-      </div>
+      <Pagination onPrev={prev} onNext={next}/>     
       <div className="characters-container">
         {loading ? (
-          <h2 className="page-title block alive">Loading...</h2>
+          <h2 className="page-title block alive  loading">Loading...</h2>
         ) : error ? (
-          <h2 className="page-title block dead fixed">{error.message}</h2>
+          <h2 className="page-title block dead fixed loading">{error.message}</h2>
         ) : (
           <div className="cards-container">
             {data.characters.results.map((character) => {

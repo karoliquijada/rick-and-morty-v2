@@ -37,10 +37,15 @@ body {
   font-size: var(--md);
 }
 
-/* Revisar */
 .link {
   text-decoration: none;
 }
+
+.loading {
+  width: 200px;
+  margin: 0 auto;
+}
+
 
 
 @media (max-width: 640px) {

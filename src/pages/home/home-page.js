@@ -12,8 +12,8 @@ const Home = () => {
       <div className="container">
         <h1 className="page-title">✌ Rick & Morty Wiki </h1>
         <p className="block fixed">
-          Esta es una wiki que utiliza la API de Rick & Morty. Aquí podrás ver los personajes
-          en el botón de personajes y conocer también los episodios.
+          Esta es una wiki que utiliza la API de Rick & Morty. Aquí podrás ver los personajes en el botón de personajes y conocer también
+          los episodios.
         </p>
         <div className="navigation">
           <Link className="block" to="/characters">
@@ -23,10 +23,10 @@ const Home = () => {
             Episodes
           </Link>
         </div>
-        <footer>
-          <p>Coded and design by @iGirliCode</p>
-        </footer>
       </div>
+      <footer>
+        <p>Coded and design by @iGirliCode</p>
+      </footer>
     </div>
   );
 };

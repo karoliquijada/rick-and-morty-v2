@@ -1,30 +1,21 @@
-import { React, useState, useEffect } from "react";
+import { React } from "react";
 
-const Pagination = ( {props}) => {
-  const { previos } = props;
+const Pagination = ({onPrev, onNext}) => {
   
-  const prev = () => {
-    if (page === 1) {
-      return;
-    }
-    setPage(page - 1);
-    console.log("Prev" + page);
+  const handlePrev = () => {
+    onPrev();
   };
 
-  const next = () => {
-   
-    if (page < pages) {
-      setPage(page + 1);
-      console.log("Next" + page);
-    }
+  const handleNext = () => {
+    onNext();  
   };
 
   return (
     <div className="pagination">
-      <button className="block" onClick={prev}>
+      <button className="block" onClick={handlePrev}>
         Prev
       </button>
-      <button className="block" onClick={next}>
+      <button className="block" onClick={handleNext}>
         Next
       </button>
     </div>

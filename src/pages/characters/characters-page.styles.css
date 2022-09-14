@@ -7,10 +7,22 @@
 }
 
 .cards-container {
+    width: 80%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     margin: 50px auto;
     gap: 25px;
+}
+
+.characters-container .loading {
+    margin: 20px auto;
+}
+
+@media (max-width: 1024px) {
+    .cards-container {
+        width: 90%;
+    }
+    
 }
