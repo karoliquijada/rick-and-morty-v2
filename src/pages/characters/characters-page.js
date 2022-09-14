@@ -22,7 +22,7 @@ const CharactersPage = () => {
 
   return (
     <div>
-      <Header title={"Personajes"} />
+      <Header title={"🚀Personajes"} />
       <Pagination onPrev={prev} onNext={next}/>     
       <div className="characters-container">
         {loading ? (

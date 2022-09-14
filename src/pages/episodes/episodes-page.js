@@ -1,4 +1,5 @@
-import {React, useState, useEffect} from "react";
+import {React, useState} from "react";
+import Pagination from "../../components/Pagination/pagination";
 import EpisodeCard from '../../components/EpisodeCard/EpisodeCard';
 import { useEpisodes } from '../../graphql/custom-hooks';
 import Header from "../../components/Header/Header";
@@ -6,46 +7,38 @@ import Header from "../../components/Header/Header";
 const EpisodesPage = () => {
 
   const [page, setPage] = useState(1);
-  const [episodes, setEpisodes] = useState([]);
   const {error, loading, data} = useEpisodes(page); 
-   
-  useEffect(() => {
-    if (data) {
-      const mappedEpisodes = data.episodes.results.map(ep => (
-        <EpisodeCard key = {ep.id} id = {ep.id} name = {ep.name} air_date = {ep.air_date}/>         
-      ));
-      setEpisodes(mappedEpisodes);
-    }
-  }, [page]);
-
-
+ 
   const prev = () => {
-    if (page === 1) {
-      return;
-    }
-    setPage(page-1);
-  }
+    if(page !== 1)
+      setPage(page - 1);
+  };
 
   const next = () => {
-    const  { pages } = data.episodes.info;
-    if (page < pages) {
-      setPage(page+1)
-    }    
-
-    /* Retornar que no hay mas resultados */
-  }
+    if(page !== 42)
+      setPage(page + 1);
+  };
   
   return (
-      <div className="App">  
-        <Header title={"Episodios"}/>  
-        <div className="b-container df">
-          <button className="link border" onClick={prev}>Prev</button>   
-          <button className="link border" onClick={next}>Next</button>      
-        </div>   
+      <div>  
+        <Header title={"📺 Episodios"}/>  
+        <Pagination onPrev={prev} onNext={next}/>
         <div className="characters-container">
-          {loading ? <h1 className="page-title">Loading...</h1> : episodes}
-          {error ? <h1 className="page-title">error...</h1> : ""}
-        </div>     
+        {loading ? (
+          <h2 className="page-title block alive  loading">Loading...</h2>
+        ) : error ? (
+          <h2 className="page-title block dead fixed loading">{error.message}</h2>
+        ) : (
+          <div className="cards-container">
+            {data.episodes.results.map(episode => {
+              return (
+                <EpisodeCard key = {episode.id} id = {episode.id} name = {episode.name} air_date = {episode.air_date}/>    
+              );
+            })}
+          </div>
+        )}
+      </div>
+          
       </div>
     );
 }
